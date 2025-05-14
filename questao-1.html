@@ -16,7 +16,7 @@
         font-optical-sizing: auto;
         font-weight: 400;
         font-style: normal;
-        background-image: url('image/fundo.png');
+        background-image: url('image/fundo-gradiente-lilas.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -29,25 +29,31 @@
         font-optical-sizing: auto;
         font-weight: 400;
         font-style: normal;
-        font-size: 16px;
+        font-size: 40px;
         color: #2c3e50;
+        text-align: center;
+        margin-top: 5px;
     }
     h2 {
         font-family: "Quicksand", sans-serif;
         font-optical-sizing: auto;
         font-weight: 400;
         font-style: normal;
-        font-size: 16px;
+        font-size: 20px;
         color: #34495e;
+        text-align: center;
+        margin-top: 20px;
     }
     p {
         font-family: "Quicksand", sans-serif;
         font-optical-sizing: auto;
         font-weight: 400;
         font-style: normal;
-        font-size: 16px;
+        font-size: 20px;
         line-height: 1.6;
         color: #34495e;
+        text-align: center;
+        margin-top: 20px;
     }
 
     .moeda{
@@ -83,6 +89,30 @@
         transform: rotateY(180deg);
     }
 
+    .tela{
+        display:none;
+        padding: 20px;
+        border: 1px solid #ccc;
+    }
+
+    .ativa{
+        display: block;
+    }
+
+    .menu{
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        text-align: center;
+        margin-top: 20px;
+
+    }
+
+    .menu img{
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
    
     .foto-perfil{
         width: 150px;
@@ -185,18 +215,28 @@
     </div>
 </div>
 
+<div class="menu">
+    <img src="image/icone-circular1.png" onclick="mostrarTela(1)" alt="Item 1">
+    <img src="image/icone-circular2.png" onclick="mostarTela(2)" alt="Item 2">
+    <img src="image/icone-circular3.png" onclick="mostarTela(3)" alt="Item 3">
+</div>
+
 <div class="bio">
 
     <h1> <strong>Fabíola Dutra dos Santos</strong></h1>
 
+    <div id="tela1" class="tela ativa">
     <h2> <small>Estudante de Análise e Desenvolvimento de Sistemas</small></h2>
-
+    </div>
+    
+    <div id="tela2" class="tela">
     <p>Olá! Me chamo Fabíola e sou aluna do curso de Análise e desenvolvimento de Sistemas.
         Estou no 4º período e tenho interesse em aprender mais sobre desenvolvimento web, mobile e banco de dados.
         Aplicando o que já sei sobre HTML, CSS, JavaScript e Python. Também sou ilustradora e desenhista.
         Sou apaixonada por tecnologia e arte e estou sempre em busca de novos desafios. 
         Estou animada para compartilhar meu conhecimento!
     </p>
+    </div>
 
 </div>
 
@@ -234,6 +274,15 @@
             moeda.style.transform = `rotateY(${rotacao}deg)`;
         }, 3000);
 
+
+        function mostrarTela(numero){
+            document.querySelectorAll('.teal').forEach(tela=>{
+            });
+
+            documente.getElementeById(`tela${numero}`).classList.add('ativa');
+        }
+
     </script>
 </body>
+
 </html>
