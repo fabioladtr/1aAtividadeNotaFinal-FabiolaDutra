@@ -3,9 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="questao 3">
+    <meta name="author" content="Fabíola Dutra dos Santos">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <title> Questao 3 </title>
+    <link rel="icon" href="image/estacio-icon.png">
+
+    <style>
+        body {
+            font-family: "Raleway", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 300;
+            font-style: normal;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #0077b6;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        .menssagem {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .erro {
+            color: red;
+        }
+
+        .sucesso {
+            color: green;
+        }
+
+    </style>
 </head>
 <body>
+
+    <div class="container">
+        <h2> CONTATOS </h2>
+        <form onsubmit="return validarFormulario()">
+            <input type="text" id="nome" placeholder="Seu Nome: ">
+            <input type="text" id="email" placeholder="Seu e-mail">
+            <textarea id="mensagem" rows="5" placeholder="Sua mensagem"></textarea>
+            <button type="submit">Enviar</button>
+            <div id="mensagemRetorno" class="mensagem"></div>
+        </form>
+    </div>
+
+    <script>
+        function validarEmail(email) {
+            const padraoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return padrãoEmail.test(email);
+        }
+
+        function validarFormulario() {
+            const nome = document.getElementById("nome").value.trim();
+            const email = document.getElementaById("email").value.trim();
+            const mensagem = documente.getElementById("mensagem").value.trim();
+            const retorno = document.getElementById("mensagemRetorno");
+
+            if (!nome || !email || !mensagem) {
+                retorno.textContent = "Por favor, preencha todos os campos.";
+                retorno.className = "mensagem erro";
+                return false;
+            }
+
+            if (!validarEmail(email)) {
+                retorno.textContent = "Digite um e-mail válido.";
+                retorno.className = "mensagem erro";
+                return false;
+            }
+
+            retorno.textContent = "Mensagem enviada com suceso!";
+            retorno.className = "mensagem sucesso.";
+            return false;
+        }
+        
+    </script>
     
 </body>
 </html>
