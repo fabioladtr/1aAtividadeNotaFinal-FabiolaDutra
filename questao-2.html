@@ -3,9 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="questao 2">
+    <meta name="author" content="Fabíola Dutra dos Santos">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <title> Questao 2 </title>
+    <link rel="icon" href="image/estacio-icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style>
+
+        body{
+            font-family: "Montserrat", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            color: #4F4F4F;
+            margin: 0;
+            background-image: url('image/imagem-fundo.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .tabela-container{
+            background-color: rgba(255,255,255,0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            max-width: 800px;
+            margin: 60px auto;
+        }
+
+        input[type="text"]{
+            font-family:'Montserrat', sans-serif;
+        }
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td{
+            border: 1px solid #ccc;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        thead{
+            background-color: #007BFF;
+            color: white;
+        }
+
+        tr:hover{
+            background-color: #f1f1f1;
+            border-left: 4px solid #007BFF;
+        }
+
+        tbody tr:nth-child(even){
+            background-color: #B0C4DE;
+        }
+
+        #filtro{
+            margin-bottom: 15px;
+            padding: 8px;
+            width: 100%;
+            max-width: 330px;
+        }
+    </style>
 </head>
 <body>
+
+    <div class="tabela-container">
+
+        <h2> TABELA DE PRODUTOS</h2>
+
+        <input type="text" id="filtro" placeholder="Filtrar por nome" onkeyup="filtrarTabela()">
+
+            <table id="tabela-produtos">
+                <thread>
+                <tr>
+                    <th>NOME</th>
+                    <th>PREÇO</th>
+                    <th>CATEGORIA</th>
+                    <th>DESCRIÇÃO</th>
+                </tr>
+                </thread>
     
+                <tbody>
+                    <tr>
+                        <td> Quatree Life gatos castrados salmão 1kg </td>
+                        <td> R$29,90 </td>
+                        <td> ração seca </td>
+                        <td> alimento premium special natural para gatos adultos castrados </td>
+                    </tr>
+
+                    <tr>
+                        <td> Premium Cat Royal Canin filhotes 1kg </td>
+                        <td> R$85,00 </td>
+                        <td> ração seca </td>
+                        <td> alimento super premium para gatos filhotes </td>
+                    </tr>
+
+                    <tr>
+                        <td> Hidratante para patas PetClean </td>
+                        <td> R$30,00 </td>
+                        <td> higiene e cuidados </td>
+                        <td> hidratante para patas e coxins </td>
+                    </tr>
+
+                    <tr>
+                        <td> Flamingo com apito </td>
+                        <td> R$37,00 </td>
+                        <td> brinquedos </td>
+                        <td> pelúcia para cães com apito </td>
+                    </tr>
+
+                    <tr>
+                        <td> Catnip líquida spray PetClean </td>
+                        <td> R$21,00 </td>
+                        <td> higiene e cuidados </td>
+                        <td> extrato de erva catnip spray </td>
+                    </tr>
+
+                    <tr>
+                        <td> Tesoura para unhas Savana </td>
+                        <td> R$17,00 </td>
+                        <td> higiene e cuidados </td>
+                        <td> tesoura para corte de unhas </td>
+                    </tr>
+
+                    <tr>
+                        <td> Bravecto cães 4,5kg a 10kg</td>
+                        <td> R$220,00 </td>
+                        <td> medicamentos </td>
+                        <td> anti parasitário </td>
+                    </tr>
+
+                    <tr>
+                        <td> Spin maçã, canela e chia </td>
+                        <td> R$9,00 </td>
+                        <td> petiscos e alimentos </td>
+                        <td> petisco funcional para cães </td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+
+    <script>
+        function filtrarTabela() {
+            const input = document.getElementById('filtro');
+            const filtro = input.value.toLowerCase();
+            const linhas = document.querySelectorAll('#tabela-produtos tbody tr');
+
+            linhas.forEach(function(linha){
+                const nomeProduto = linha.cells[0].textContent.toLowerCase();
+                linha.style.display = nomeProduto.includes(filtro) ? '' : 'none';
+            });
+        }
+    </script>
+
 </body>
 </html>
