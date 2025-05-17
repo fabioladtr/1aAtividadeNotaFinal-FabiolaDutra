@@ -8,10 +8,11 @@
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <title> Questao 3 </title>
     <link rel="icon" href="image/estacio-icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <style>
         body {
-            font-family: "Raleway", sans-serif;
+            font-family: "Roboto Condensed", sans-serif;
             font-optical-sizing: auto;
             font-weight: 300;
             font-style: normal;
@@ -23,12 +24,17 @@
         }
 
         .container {
-            background: white;
+            background: linear-gradient(to bottom right, #E0FFFF, #FFC0CB);
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             width: 100%;
             max-width: 400px;
+        }
+
+        h2{
+            text-align: center;
+            color: #333;
         }
 
         input, textarea {
@@ -43,8 +49,8 @@
         }
 
         button {
-            background-color: #0077b6;
-            color: white;
+            background-color: #ADD8E6;
+            color: #4B0082;
             padding: 10px;
             border: none;
             border-radius: 5px;
@@ -71,8 +77,11 @@
 <body>
 
     <div class="container">
-        <h2> CONTATOS </h2>
-        <form onsubmit="return validarFormulario()">
+        <img src="image/aviao.png" alt="Contato" style="width: 60px; display: block; margin: 0 auto 10px;"
+
+        <h2> Formulario de Contatos </h2>
+
+        <form id="formularioContato">
             <input type="text" id="nome" placeholder="Seu Nome: ">
             <input type="text" id="email" placeholder="Seu e-mail">
             <textarea id="mensagem" rows="5" placeholder="Sua mensagem"></textarea>
@@ -84,33 +93,34 @@
     <script>
         function validarEmail(email) {
             const padraoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return padrãoEmail.test(email);
+            return padraoEmail.test(email);
         }
 
-        function validarFormulario() {
+        document.getElementById("formularioContato").addEventListener("submit", function(event){
+            event.preventDefault();
+
+        
             const nome = document.getElementById("nome").value.trim();
-            const email = document.getElementaById("email").value.trim();
-            const mensagem = documente.getElementById("mensagem").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const mensagem = document.getElementById("mensagem").value.trim();
             const retorno = document.getElementById("mensagemRetorno");
 
             if (!nome || !email || !mensagem) {
                 retorno.textContent = "Por favor, preencha todos os campos.";
                 retorno.className = "mensagem erro";
-                return false;
+                return;
             }
 
             if (!validarEmail(email)) {
                 retorno.textContent = "Digite um e-mail válido.";
                 retorno.className = "mensagem erro";
-                return false;
+                return;
             }
 
             retorno.textContent = "Mensagem enviada com suceso!";
             retorno.className = "mensagem sucesso.";
-            return false;
-        }
-        
-    </script>
-    
+
+        });
+     </script>   
 </body>
 </html>
